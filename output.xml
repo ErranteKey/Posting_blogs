@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.11.9 on win32)" generated="2025-06-08T23:43:39.806642" rpa="false" schemaversion="5">
+<suite id="s1" name="User Authentication" source="D:\university\5_kurs\avtomatiz\robot_tests\user_authentication.robot">
+<test id="s1-t1" name="Successful User Registration" line="6">
+<kw name="Open Browser To Login Page" owner="common_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:40.119634" level="INFO">Opening browser 'edge' to base url 'http://localhost:8080/login'.</msg>
+<arg>${BASE_URL}/login</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-06-08T23:43:40.118930" elapsed="1.557752"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-08T23:43:41.677679" elapsed="0.027998"/>
+</kw>
+<status status="PASS" start="2025-06-08T23:43:40.117929" elapsed="1.588749"/>
+</kw>
+<kw name="Generate And Set User Credentials" owner="common_keywords">
+<kw name="Generate Random String" owner="String">
+<msg time="2025-06-08T23:43:41.707680" level="INFO">${random_part} = Fkpz6CPZ</msg>
+<var>${random_part}</var>
+<arg>8</arg>
+<arg>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-06-08T23:43:41.707680" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-06-08T23:43:41.708677" level="INFO">${dynamic_username} = testuserFkpz6CPZ</msg>
+<var>${dynamic_username}</var>
+<arg>SEPARATOR=</arg>
+<arg>testuser</arg>
+<arg>${random_part}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-06-08T23:43:41.707680" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-06-08T23:43:41.708677" level="INFO">${dynamic_email} = testuserFkpz6CPZ@example.com</msg>
+<var>${dynamic_email}</var>
+<arg>SEPARATOR=@</arg>
+<arg>${dynamic_username}</arg>
+<arg>example.com</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-06-08T23:43:41.708677" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-08T23:43:41.709676" level="INFO">${USERNAME} = testuserFkpz6CPZ</msg>
+<arg>${USERNAME}</arg>
+<arg>${dynamic_username}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-08T23:43:41.708677" elapsed="0.000999"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-08T23:43:41.711676" level="INFO">${EMAIL} = testuserFkpz6CPZ@example.com</msg>
+<arg>${EMAIL}</arg>
+<arg>${dynamic_email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-08T23:43:41.710679" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2025-06-08T23:43:41.706678" elapsed="0.004998"/>
+</kw>
+<kw name="Go To Registration Page" owner="common_keywords">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:41.711676" level="INFO">Clicking link 'Or Sign Up'.</msg>
+<arg>Or Sign Up</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-08T23:43:41.711676" elapsed="0.134001"/>
+</kw>
+<status status="PASS" start="2025-06-08T23:43:41.711676" elapsed="0.134001"/>
+</kw>
+<kw name="Fill Registration Form" owner="common_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:41.847679" level="INFO">Typing text 'testuserFkpz6CPZ' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-08T23:43:41.846677" elapsed="0.120003"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:41.966680" level="INFO">Typing text 'testuserFkpz6CPZ@example.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-08T23:43:41.966680" elapsed="0.135005"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:42.101685" level="INFO">Typing text 'TestPass123!' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-08T23:43:42.101685" elapsed="0.094993"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:42.196678" level="INFO">Typing text 'TestPass123!' into text field 'id=confirm'.</msg>
+<arg>id=confirm</arg>
+<arg>${confirm_password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-08T23:43:42.196678" elapsed="0.095999"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>${EMAIL}</arg>
+<arg>${PASSWORD}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2025-06-08T23:43:41.846677" elapsed="0.446000"/>
+</kw>
+<kw name="Submit Registration Form" owner="common_keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:42.293678" level="INFO">Clicking element 'id=register'.</msg>
+<arg>id=register</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-08T23:43:42.292677" elapsed="0.495015"/>
+</kw>
+<status status="PASS" start="2025-06-08T23:43:42.292677" elapsed="0.495015"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-06-08T23:43:42.787692" elapsed="2.123623"/>
+</kw>
+<status status="PASS" start="2025-06-08T23:43:40.116930" elapsed="4.794385"/>
+</test>
+<test id="s1-t2" name="Successful User Login and Post" line="13">
+<kw name="Open Browser To Login Page" owner="common_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:44.914314" level="INFO">Opening browser 'edge' to base url 'http://localhost:8080/login'.</msg>
+<arg>${BASE_URL}/login</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-06-08T23:43:44.913316" elapsed="1.597339"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-08T23:43:46.510655" elapsed="0.034000"/>
+</kw>
+<status status="PASS" start="2025-06-08T23:43:44.913316" elapsed="1.631339"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:46.545657" level="INFO">Typing text 'testuserFkpz6CPZ' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-08T23:43:46.544655" elapsed="0.127047"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:46.672702" level="INFO">Typing text 'TestPass123!' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-08T23:43:46.672702" elapsed="0.118527"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:46.792228" level="INFO">Clicking element 'id=login'.</msg>
+<arg>id=login</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-08T23:43:46.791229" elapsed="0.367572"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:47.158801" level="INFO">Opening url 'http://localhost:8080/post'</msg>
+<arg>${BASE_URL}/post</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-06-08T23:43:47.158801" elapsed="0.121571"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:47.281372" level="INFO">Typing text 'SomeTitle' into text field 'id=title'.</msg>
+<arg>id=title</arg>
+<arg>${POST_TITLE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-08T23:43:47.280372" elapsed="0.080998"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:47.362371" level="INFO">Typing text 'SomeDescription' into text field 'id=description'.</msg>
+<arg>id=description</arg>
+<arg>${POST_DESCRIPTION}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-08T23:43:47.362371" elapsed="0.065001"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:47.427372" level="INFO">Typing text 'Body' into text field 'id=body'.</msg>
+<arg>id=body</arg>
+<arg>${POST_BODY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-08T23:43:47.427372" elapsed="0.064002"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-08T23:43:47.491374" level="INFO">Clicking element 'id=post'.</msg>
+<arg>id=post</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-08T23:43:47.491374" elapsed="0.055998"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-06-08T23:43:47.548374" elapsed="2.130498"/>
+</kw>
+<status status="PASS" start="2025-06-08T23:43:44.912320" elapsed="4.766552"/>
+</test>
+<status status="PASS" start="2025-06-08T23:43:39.807646" elapsed="9.872232"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="User Authentication" id="s1" pass="2" fail="0" skip="0">User Authentication</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

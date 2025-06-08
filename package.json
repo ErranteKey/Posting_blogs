@@ -22,7 +22,8 @@
     "test": "mocha --recursive tests/**/*.js",
     "coverage": "nyc npm test",
     "lint": "eslint",
-    "test:ui": "selenium-side-runner tests/selenium/UserRegistrationTest.side"
+    "test:ui": "selenium-side-runner tests/selenium/UserRegistrationTest.side",
+    "test:ui:robot": "python -m robot robot_tests/user_authentication.robot"
   },
   "dependencies": {
     "async": "^2.6.1",
