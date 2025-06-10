@@ -23,7 +23,8 @@
     "coverage": "nyc npm test",
     "lint": "eslint",
     "test:ui": "selenium-side-runner tests/selenium/UserRegistrationTest.side",
-    "test:ui:robot": "python -m robot robot_tests/user_authentication.robot"
+    "test:ui:robot": "python -m robot robot_tests/user_authentication.robot",
+    "test:ui:python": "pytest selenium_web/tests/test_authentication.py"
   },
   "dependencies": {
     "async": "^2.6.1",
